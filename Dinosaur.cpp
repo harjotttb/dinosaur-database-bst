@@ -1,12 +1,4 @@
 
-
-/**
- * Work on this code!
- * Name: Harjot Bhangu
- * CWID: 828073312
- * Email: harjottb@csu.fullerton.edu
- */
-
 #include "Dinosaur.hpp"
 
 

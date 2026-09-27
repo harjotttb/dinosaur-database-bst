@@ -1,31 +1,6 @@
 #ifndef CPSC131_BST_MYBST_HPP
 #define CPSC131_BST_MYBST_HPP
 
-/**
- * Work on this code!
- * Name: Harjot Bhangu
- * CWID: 828073312
- * Email: harjottb@csu.fullerton.edu
- */
-
-
-/**
- * ***** TEST COVERAGE BOUNTY *****
- * If you can discover a part of this code that is not currently
- * covered by test cases, you may receive a small amount
- * of extra credit for reporting it to me.
- * 
- * Follow these steps:
- * 
- * 1. Identify what parts of your code are not covered by unit tests.
- * 2. Write up a detailed description of the above.
- * 3. Write up the actual unit tests that would cover the code (i.e., code added to CPP_Tests.cpp)
- * 
- * If I decide to add the test cases for future semesters,
- * you'll be granted the extra credit right away.
- * 
- * Valid only for the first reporter of each test.
- */
 
 
 #include <functional>
@@ -38,14 +13,14 @@
 
 namespace CPSC131::BST
 {
-	///	YOUR WELCOME
+	
 	using std::cout, std::endl;
 	
-	///	YOUR WELCOME
+	
 	///	Must bring std::to_string into this scope so we can overload it further below
 	using std::to_string;
 	
-	///	YOUR WELCOME
+	
 	//	Custom exceptions
 	class ValueNotFoundError : public std::runtime_error
 	{
@@ -57,17 +32,9 @@ namespace CPSC131::BST
 		public:
 			using std::runtime_error::runtime_error;
 	};
-	///	YOUR WELCOME
+	///	
 	
-	/*********************************
-	 * Begin declarations
-	 * 
-	 * DO NOT modify any existing declarations
-	 * or your tests will likely not pass.
-	 * 
-	 * You may ADD additional declarations if you wish to use helper functions,
-	 * which is probably a smart idea.
-	 ********************************/
+
 	template <class T>
 	class MyBST
 	{
@@ -80,7 +47,7 @@ namespace CPSC131::BST
 					
 					/// /////////////////////////////////////
 					///	Overloading so std::to_string works
-					///	YOUR WELCOME
+					///	
 					std::string to_string(const Node& node)
 					{
 						std::stringstream ss;
@@ -206,14 +173,14 @@ namespace CPSC131::BST
 		
 		private:
 			
-			///	YOUR WELCOME
+			///	
 			void traverseLevelOrder
 			(
 				std::shared_ptr<Node> node,
 				std::function<bool(const MyBST&, std::shared_ptr<Node>)> callback
 			) const;
 			
-			///	YOUR WELCOME
+			///	
 			void traverseLevelOrder
 			(
 				std::shared_ptr<Node> node,
@@ -228,18 +195,7 @@ namespace CPSC131::BST
 			friend class Tester;
 	};
 	
-	/*********************************
-	 * Begin definitions
-	 * 
-	 * Below you'll find definitions (implementations) of all declared
-	 * methods you saw above. You must complete each method below.
-	 * 
-	 * Your work it to complete the incomplete methods below, changing
-	 * anything in the methods' bodies you feel is needed.
-	 * But do not modify method signatures.
-	 * 
-	 * 
-	 ********************************/
+
 
 
 	
@@ -261,17 +217,7 @@ namespace CPSC131::BST
 		right_child_ = nullptr;
 	}
 	
-	/**
-	 * Node's Copy Constructor
-	 * 
-	 * What does it mean to "copy one Node to another"?
-	 * 
-	 * For this project, we'll assume pointer-stealing is totally
-	 * fine for Nodes, because they don't own the overall data structure
-	 * but simply hold values.
-	 * 
-	 * In other words, copy all pointers and the value directly.
-	 */
+
 	template <class T>
 	MyBST<T>::Node::Node(const MyBST<T>::Node& other)
 	{
@@ -367,24 +313,7 @@ namespace CPSC131::BST
 		return right_child_;
 	}
 	
-	/**
-	 * The clear() method should null all pointers.
-	 * 
-	 * Remember that snipping a Node from the tree should
-	 * involve not only nulling its pointers, but nulling
-	 * any other pointers that refer to it.
-	 * 
-	 * For example, if you nulled this Node but it still had
-	 * a parent pointing down to it (e.g., left child), the
-	 * Node wouldn't really be disconnected from the tree.
-	 * 
-	 * As another example, if you nulled this Node but it still had
-	 * a child pointing back up to it (e.g., parent pointer), the
-	 * Node wouldn't really be disconnected from the tree.
-	 * 
-	 * In both of the above examples, the tree would end up
-	 * malformed, and/or result in memory leaks.
-	 */
+
 	template <class T>
 	void MyBST<T>::Node::clear()
 	{
@@ -441,10 +370,7 @@ namespace CPSC131::BST
 	}
 	
 	
-	/***********************************
-	 * Begin Binary Search Tree methods!
-	 * aka MyBST<T>
-	 **********************************/
+
 	
 	
 	/**
@@ -460,19 +386,6 @@ namespace CPSC131::BST
 	
 	/**
 	 * BST's Copy Constructor (Copy CTOR)
-	 * 
-	 * Hint: How can you copy a BST to another and ensure 
-	 * the same topology? This is why level-order traversal
-	 * has been impemented on your behalf.
-	 * 
-	 * Simply iterate through the source tree using level-order
-	 * traversal.
-	 * For each Node you find, just insert() its data into the
-	 * destination tree.
-	 * 
-	 * Level-order traversal automatically handles the correct
-	 * topology.
-	 * 
 	 */
 	template <class T>
 	MyBST<T>::MyBST(const MyBST& other)
@@ -489,8 +402,6 @@ namespace CPSC131::BST
 	
 	/**
 	 * Tree's Destructor.
-	 * 
-	 * Here you should empty the tree to ensure no memory leaks.
 	 */
 	template <class T>
 	MyBST<T>::~MyBST()
@@ -564,17 +475,7 @@ namespace CPSC131::BST
 		return node->getData();
 	}
 	
-	/**
-	 * Find a value in the Tree, and return its containing Node pointer
-	 * to the caller.
-	 * 
-	 * This is very similar to the above find() method,
-	 * only find_node returns a Node pointer, while find() returns
-	 * a reference to the actual value.
-	 * 
-	 * If the value isn't found, don't throw any exceptions; Simply
-	 * return a null pointer to the caller.
-	 */
+
 	template <class T>
 	std::shared_ptr<class MyBST<T>::Node> MyBST<T>::find_node(T value) const
 	{
@@ -592,12 +493,7 @@ namespace CPSC131::BST
 		return nullptr;
 	}
 	
-	/**
-	 * Remove a value from the Tree.
-	 * 
-	 * Should throw a ValueNotFoundError excption if the value
-	 * doesn't exist in the Tree.
-	 */
+
 	template <class T>
 	void MyBST<T>::remove(T value)
 	{
@@ -608,15 +504,7 @@ namespace CPSC131::BST
 		remove(node);
 	}
 	
-	/**
-	 * Remove a specific Node from the Tree.
-	 * 
-	 * This is very similar to the above remove(T),
-	 * only we specify an actual Node pointer to remove rather
-	 * than a value.
-	 * 
-	 * Should throw some type of exception if the Node is null.
-	 */
+
 	template <class T>
 	void MyBST<T>::remove(std::shared_ptr<MyBST<T>::Node> node)
 	{
@@ -864,18 +752,7 @@ namespace CPSC131::BST
 		preOrderHelper(root_);
 	}
 	
-	/**
-	 * Visit every Node in the Tree, in in-order traversal.
-	 * 
-	 * This is the const overload of traverseInOrder.
-	 * 
-	 * Note that some of these traversal methods
-	 * have constant overloads, allowing the caller to use them
-	 * even in constant contexts. Notice this method is marked
-	 * as "const", and also uses a callback signature
-	 * that has a constant Tree pointer.
-	 * 
-	 */
+
 	template <class T>
 	void MyBST<T>::traverseInOrder
 	(
@@ -930,7 +807,7 @@ namespace CPSC131::BST
 	}
 	
 	/**
-	 * YOUR WELCOME
+	 * 
 	 * 
 	 * Traverse the Tree using level-order (const version).
 	 * 
@@ -947,7 +824,7 @@ namespace CPSC131::BST
 	}
 	
 	/**
-	 * YOUR WELCOME
+	 * 
 	 * 
 	 * Traverse the Tree using level-order (non-const version).
 	 * 
@@ -1055,23 +932,7 @@ namespace CPSC131::BST
 
 	}
 	
-	/**
-	 * YOUR WELCOME
-	 * 
-	 * You should not modify this method, but should study it
-	 * for your own learning.
-	 * 
-	 * This basically generates a graph in the "dot" language,
-	 * which we can use with the "dot" program (from graphviz)
-	 * to render a pretty pretty graph to an image file.
-	 * 
-	 * When you manipulate your Tree using the main() TUI's,
-	 * you should notice a graph continually being updated
-	 * in the file system. You can open it with an image viewer
-	 * and see a visual representation of your Tree,
-	 * to help your debugging! :)
-	 * 
-	 */
+
 	template <class T>
 	std::string MyBST<T>::renderToDot() const
 	{
@@ -1216,19 +1077,7 @@ namespace CPSC131::BST
 		return *this;
 	}
 	
-	/**
-	 * YOUR WELCOME
-	 * 
-	 * You are not required to know level-order traversal at this stage,
-	 * so this method has been completed on your behalf.
-	 * 
-	 * If you are curious, study this method a bit, as it is essentially
-	 * "breadth first search", an iterative algorithm we'll learn
-	 * later in the semester.
-	 * 
-	 * DO NOT MODIFY this method, as it may be considered tampering with
-	 * the unit tests and result in a 0 for the entire assignment.
-	 */
+
 	template <class T>
 	void MyBST<T>::traverseLevelOrder
 	(
@@ -1269,19 +1118,7 @@ namespace CPSC131::BST
 		}
 	}
 	
-	/**
-	 * YOUR WELCOME
-	 * 
-	 * You are not required to know level-order traversal at this stage,
-	 * so this method has been completed on your behalf.
-	 * 
-	 * If you are curious, study this method a bit, as it is essentially
-	 * "breadth first search", an iterative algorithm we'll learn
-	 * later in the semester.
-	 * 
-	 * DO NOT MODIFY this method, as it may be considered tampering with
-	 * the unit tests and result in a 0 for the entire assignment.
-	 */
+
 	template <class T>
 	void MyBST<T>::traverseLevelOrder
 	(

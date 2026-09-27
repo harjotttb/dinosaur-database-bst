@@ -1,25 +1,4 @@
 
-
-/**
- * Work on this code!
- * Name: Harjot Bhangu
- * CWID: 828073312
- * Email: harjottb@csu.fullerton.edu
- */
-
-/**
- * ***** TEST COVERAGE BOUNTY *****
- * If you can discover a part of this code that is not currently
- * covered by test cases, you may receive a small amount
- * of extra credit for reporting it to me.
- * 
- * Send me a detailed description of what is not covered.
- * If I decide to add the test cases for future semesters,
- * you'll be granted the extra credit right away.
- * 
- * Valid only for the first reporter.
- */
-
 #include "MyDinosaurDatabase.hpp"
 
 
@@ -32,7 +11,6 @@ namespace CPSC131::Databases::Dinosaurs
 {
 	MyDinosaurDatabase::MyDinosaurDatabase()
 	{
-		///	YOUR WELCOME
 		this->rng_ = std::mt19937(this->random_device_());
 		
 		//	Feel free to add more code here, if you feel it is needed
@@ -51,17 +29,7 @@ namespace CPSC131::Databases::Dinosaurs
 		return tree_.exists(dino);
 	}
 	
-	/**
-	 * Return a Dinosaur record from the database to the caller
-	 * 
-	 * For all methods here that take an incoming Dinosaur object,
-	 * the caller expects to create an empty Dinosaur object
-	 * with ***only*** the ID field filled out.
-	 * 
-	 * When the Dinosaur class has its comparison operators
-	 * overloaded properly, the BST will be able to locate
-	 * the correct Dinosaur entry in the tree using just the ID field.
-	 */
+
 	Dinosaur& MyDinosaurDatabase::find(const Dinosaur& dino)
 	{
 		
@@ -142,21 +110,7 @@ namespace CPSC131::Databases::Dinosaurs
 	
 	}
 	
-	/**
-	 * YOUR WELCOME
-	 * 
-	 * Shuffle the dinosaur database, by pulling all records out of
-	 * the tree into a vector, then shuffling the vector,
-	 * then inserting back into the tree.
-	 * 
-	 * The database itself won't actually change, but the topology
-	 * is significantly likely to be different.
-	 * 
-	 * In general, this can be a potential cure for poisoned
-	 * input data ordering.
-	 * 
-	 * YOUR WELCOME
-	 */
+
 	void MyDinosaurDatabase::shuffle()
 	{
 		std::vector<Dinosaur> dinos_list;

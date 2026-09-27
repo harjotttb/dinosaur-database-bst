@@ -2,13 +2,7 @@
 #define CPSC131_DATA_DINOSAURS_DINOSAUR_HPP
 
 
-/**
- * You probably don't need to work on this class declaration.
- * 
- * Don't modify any existing prototypes.
- * 
- * You may add more helper functions, if you wish.
- */
+
 
 
 #include <sstream>

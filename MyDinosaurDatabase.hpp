@@ -2,13 +2,7 @@
 #define CPSC131_BST_MDINOSAURDATABASE_HPP
 
 
-/**
- * You probably don't need to work on this class declaration.
- * 
- * Don't modify any existing prototypes.
- * 
- * You may add more helper functions, if you wish.
- */
+
 
 
 #include "MyBST.hpp"
@@ -21,11 +15,7 @@
 
 namespace CPSC131::Databases::Dinosaurs
 {
-	/**
-	 * Begin the MyDinosaurDatabase class declaration.
-	 * 
-	 * Hint: The class doesn't actually do much. It's a wrapper!
-	 */
+
 	class MyDinosaurDatabase
 	{
 		public:
